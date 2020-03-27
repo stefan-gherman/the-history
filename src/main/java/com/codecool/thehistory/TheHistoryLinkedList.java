@@ -14,6 +14,11 @@ public class TheHistoryLinkedList implements TheHistory {
     @Override
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
+        String[] splitText = text.split("\\s+");
+        for (String word : splitText
+        ) {
+            wordsLinkedList.add(word);
+        }
     }
 
     @Override
