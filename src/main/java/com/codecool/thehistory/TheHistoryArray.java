@@ -65,6 +65,11 @@ public class TheHistoryArray implements TheHistory {
     @Override
     public void replaceOneWord(String from, String to) {
         //TODO: check the TheHistory interface for more information
+        List<String> lst = new ArrayList<String>();
+        Collections.addAll(lst, wordsArray);
+        Collections.replaceAll(lst, from ,to);
+        wordsArray = new String [lst.size()];
+        wordsArray = lst.toArray(wordsArray);
     }
 
     @Override
