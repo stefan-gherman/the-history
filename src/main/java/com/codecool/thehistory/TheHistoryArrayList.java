@@ -24,6 +24,7 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public void removeWord(String wordToBeRemoved) {
         //TODO: check the TheHistory interface for more information
+        wordsArrayList.removeAll(Collections.singleton(wordToBeRemoved));
     }
 
     @Override
