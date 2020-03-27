@@ -17,11 +17,14 @@ public class TheHistoryArray implements TheHistory {
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
         String[] splitText = text.split("\\s+");
+        List<String> lst = new ArrayList<String>();
+        Collections.addAll(lst, wordsArray);
         for (String word : splitText
         ) {
-            wordsArray = Arrays.copyOf(wordsArray, wordsArray.length + 1);
-            wordsArray[wordsArray.length - 1] = word;
+           lst.add(word);
         }
+        wordsArray = new String[lst.size()];
+        wordsArray = lst.toArray(wordsArray);
     }
 
     @Override
@@ -52,6 +55,11 @@ public class TheHistoryArray implements TheHistory {
     @Override
     public void clear() {
         //TODO: check the TheHistory interface for more information
+        List<String> lst = new ArrayList<String>();
+        Collections.addAll(lst, wordsArray);
+        lst.clear();
+        wordsArray = new String[lst.size()];
+        wordsArray = lst.toArray(wordsArray);
     }
 
     @Override
