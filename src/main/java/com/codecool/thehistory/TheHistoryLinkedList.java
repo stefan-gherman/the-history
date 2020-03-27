@@ -24,6 +24,7 @@ public class TheHistoryLinkedList implements TheHistory {
     @Override
     public void removeWord(String wordToBeRemoved) {
         //TODO: check the TheHistory interface for more information
+        wordsLinkedList.removeAll(Collections.singleton(wordToBeRemoved));
     }
 
     @Override

@@ -2,7 +2,9 @@ package com.codecool.thehistory;
 
 
 
-import java.util.Arrays;
+
+import java.util.*;
+
 
 public class TheHistoryArray implements TheHistory {
 
@@ -15,8 +17,8 @@ public class TheHistoryArray implements TheHistory {
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
         String[] splitText = text.split("\\s+");
-        for (String word: splitText
-             ) {
+        for (String word : splitText
+        ) {
             wordsArray = Arrays.copyOf(wordsArray, wordsArray.length + 1);
             wordsArray[wordsArray.length - 1] = word;
         }
@@ -25,6 +27,20 @@ public class TheHistoryArray implements TheHistory {
     @Override
     public void removeWord(String wordToBeRemoved) {
         //TODO: check the TheHistory interface for more information
+//        int idx = 0;
+//        for (int i=0; i< wordsArray.length; i++) {
+//            if (!wordToBeRemoved.equals(wordsArray[i])){
+//                wordsArray[idx++] = wordsArray[i];
+//            }
+//        }
+//        wordsArray = Arrays.copyOf(wordsArray,idx);
+
+        List<String> lst = new ArrayList<String>();
+        Collections.addAll(lst, wordsArray);
+        lst.removeAll(Collections.singleton(wordToBeRemoved));
+        wordsArray = new String[lst.size()];
+        wordsArray = lst.toArray(wordsArray);
+
     }
 
     @Override
