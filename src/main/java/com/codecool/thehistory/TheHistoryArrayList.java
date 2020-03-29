@@ -45,6 +45,43 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public void replaceMoreWords(String[] fromWords, String[] toWords) {
         //TODO: check the TheHistory interface for more information
+        List<String> from = new ArrayList<>();
+        Collections.addAll(from, fromWords);
+
+        List<String> to = new ArrayList<>();
+        Collections.addAll(to, toWords);
+
+
+        int begin = 0;
+        int currentEnd = from.size();
+        int checked = 0;
+        int adder;
+
+//        LinkedList<String> lst = new LinkedList<>(wordsArrayList);
+//        Iterator it = lst.iterator();
+
+        if (from.size() <= to.size() && !(to.containsAll(from))) {
+            adder = from.size();
+        } else {
+            adder = to.size();
+        }
+
+        while(currentEnd <= wordsArrayList.size()) {
+//           List<String> plm = new ArrayList<>(lst.subList(begin, currentEnd));
+            if(wordsArrayList.subList(begin, currentEnd).equals(from)){
+              wordsArrayList.subList(begin, currentEnd).clear();
+                wordsArrayList.addAll(begin, to);
+                begin += adder;
+                currentEnd += adder;
+            } else {
+                begin += 1;
+                currentEnd += 1;
+            }
+
+        }
+
+
+
     }
 
     @Override
